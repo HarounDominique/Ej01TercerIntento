@@ -1,6 +1,8 @@
 package com.example.ej01tercerintento.ui.elements
 
+import androidx.compose.foundation.gestures.ModifierLocalScrollableContainerProvider.value
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
@@ -9,6 +11,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -37,11 +40,16 @@ fun Ej01(){
             })
         }
     ) {
-        Column(modifier = Modifier.padding(it), horizontalAlignment = Alignment.CenterHorizontally){
+        Column(modifier = Modifier
+            .padding(it)
+            .fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally){
             if(vm.numCounter==0){
                 Text(text="Introduce el número de contadores")
+                TextField(value = "", onValueChange = {value = it})
             }else{
-
+                repeat(vm.numCounter){
+                    Counter(number = vm.numCounter.toString(), firstButtonAction = { vm.decreaseCounter(it) }, secondButtonAction = {vm.increaseCounter(it)})
+                }
             }
         }
     }
