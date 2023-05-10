@@ -3,20 +3,22 @@ package com.example.ej01tercerintento.ui.state
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 
 class Ej01ViewModel(): ViewModel() {
     private val _counterList = mutableStateListOf<Int>()
     val counterList get() = _counterList
 
-    var numCounter = _counterList.size
+    private var _numCounter by mutableStateOf(0)
+    val numCounter get() = _numCounter
 
-    private val _firstScreenTextFieldValue by mutableStateOf("")
+    private var _firstScreenTextFieldValue by mutableStateOf(0)
     val firstScreenTextFieldValue get() = _firstScreenTextFieldValue
 
     //FUNCIONES
     fun resetNumCounter(){
-        numCounter=0
+        _numCounter=0
     }
 
     fun increaseCounter(index:Int){
@@ -25,5 +27,13 @@ class Ej01ViewModel(): ViewModel() {
 
     fun decreaseCounter(index:Int){
         _counterList[index]--
+    }
+
+    fun setFirstScreenTextFieldValue(number:Int){
+        _firstScreenTextFieldValue=number
+    }
+
+    fun setNumCounter(text: String){
+        _numCounter=text.toIntOrNull()?:0
     }
 }

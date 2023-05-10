@@ -1,11 +1,11 @@
 package com.example.ej01tercerintento.ui.elements
 
-import androidx.compose.foundation.gestures.ModifierLocalScrollableContainerProvider.value
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -29,7 +29,7 @@ fun Ej01(){
             TopAppBar(title = {Text("Contadores")}, actions = {
                 IconButton(
                     onClick = {
-                        vm.numCounter=0
+                        vm.resetNumCounter()
                     }
                 ) {
                     Icon(
@@ -45,7 +45,12 @@ fun Ej01(){
             .fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally){
             if(vm.numCounter==0){
                 Text(text="Introduce el número de contadores")
-                TextField(value = "", onValueChange = {value = it})
+                TextField(
+                    value = vm.numCounter.toString(),
+                    onValueChange = {vm.setFirstScreenTextFieldValue(it.toIntOrNull()?:0)})
+                Button(onClick = { vm.setNumCounter(vm.numCounter.toString()) }) {
+                    Text(text="Mostrar")
+                }
             }else{
                 repeat(vm.numCounter){
                     Counter(number = vm.numCounter.toString(), firstButtonAction = { vm.decreaseCounter(it) }, secondButtonAction = {vm.increaseCounter(it)})
