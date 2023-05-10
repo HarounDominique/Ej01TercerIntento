@@ -7,15 +7,16 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun Counter(
-    number:String,
+    number:Int,
     firstButtonAction:()->Unit,
-    secondButtonAction:()->Unit
+    secondButtonAction:()->Unit,
+    counterListInit:()->Unit
 ){
     Row() {
         Button(onClick = { firstButtonAction }) {
             Text(text = "Decrementar")
         }
-        Text(text=number)
+        Text(text=number.toString())
         Button(onClick = { secondButtonAction }) {
             Text(text = "Incrementar")
         }

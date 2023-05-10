@@ -53,7 +53,7 @@ fun Ej01(){
                 }
             }else{
                 repeat(vm.numCounter){
-                    Counter(number = vm.numCounter.toString(), firstButtonAction = { vm.decreaseCounter(it) }, secondButtonAction = {vm.increaseCounter(it)})
+                    Counter(number = vm.counterList[it], firstButtonAction = { vm.decreaseCounter(it) }, secondButtonAction = {vm.increaseCounter(it)}, counterListInit = {vm.counterListInit(it)})
                 }
             }
         }

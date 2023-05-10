@@ -36,4 +36,10 @@ class Ej01ViewModel(): ViewModel() {
     fun setNumCounter(text: String){
         _numCounter=text.toIntOrNull()?:0
     }
+
+    fun counterListInit(number:Int){
+        repeat(number){
+            counterList[it]=0
+        }
+    }
 }
