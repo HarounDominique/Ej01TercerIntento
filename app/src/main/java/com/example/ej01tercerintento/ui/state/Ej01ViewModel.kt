@@ -29,8 +29,8 @@ class Ej01ViewModel(): ViewModel() {
         _counterList[index]--
     }
 
-    fun setFirstScreenTextFieldValue(number:Int){
-        _firstScreenTextFieldValue=number
+    fun setFirstScreenTextFieldValue(text:String){
+        _numCounter=text.toIntOrNull()?:0
     }
 
     fun setNumCounter(text: String){

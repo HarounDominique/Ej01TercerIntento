@@ -47,13 +47,16 @@ fun Ej01(){
                 Text(text="Introduce el número de contadores")
                 TextField(
                     value = vm.numCounter.toString(),
-                    onValueChange = {vm.setFirstScreenTextFieldValue(it.toIntOrNull()?:0)})
-                Button(onClick = { vm.setNumCounter(vm.numCounter.toString()) }) {
+                    onValueChange = {vm.setFirstScreenTextFieldValue(it)})
+                Button(onClick =  {vm.setNumCounter(vm.numCounter.toString())}) {
                     Text(text="Mostrar")
                 }
             }else{
                 repeat(vm.numCounter){
-                    Counter(number = vm.counterList[it], firstButtonAction = { vm.decreaseCounter(it) }, secondButtonAction = {vm.increaseCounter(it)}, counterListInit = {vm.counterListInit(it)})
+                    Counter(number = vm.counterList[it],
+                        firstButtonAction = { vm.decreaseCounter(it) },
+                        secondButtonAction = {vm.increaseCounter(it)},
+                        counterListInit = {vm.counterListInit(it)})
                 }
             }
         }
