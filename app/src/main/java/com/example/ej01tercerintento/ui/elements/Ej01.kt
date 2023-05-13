@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -39,24 +40,25 @@ fun Ej01(){
                 }
             })
         }
-    ) {
+    ) { paddingValues ->
         Column(modifier = Modifier
-            .padding(it)
-            .fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally){
-            if(vm.numCounter==0){
+            .padding(paddingValues)
+            .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally){
+            if(vm.counterList.size==0){
                 Text(text="Introduce el número de contadores")
                 TextField(
-                    value = vm.numCounter.toString(),
+                    value = vm.firstScreenTextFieldValue,
                     onValueChange = {vm.setFirstScreenTextFieldValue(it)})
-                Button(onClick =  {vm.setNumCounter(vm.numCounter.toString())}) {
+                Button(onClick =  {vm.counterListInit(vm.firstScreenTextFieldValue.toIntOrNull()?:0)}) {
                     Text(text="Mostrar")
                 }
             }else{
-                repeat(vm.numCounter){
-                    Counter(number = vm.counterList[it],
+                repeat(vm.counterList.size){
+                    Counter(
                         firstButtonAction = { vm.decreaseCounter(it) },
                         secondButtonAction = {vm.increaseCounter(it)},
-                        counterListInit = {vm.counterListInit(it)})
+                        number = vm.counterList[it]) //number está mostrando la variable correcta, ya que si inicializo la lista a 3 en lugar de 0, se muestra correctamente
                 }
             }
         }

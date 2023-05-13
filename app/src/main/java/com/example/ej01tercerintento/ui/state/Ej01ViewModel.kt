@@ -7,18 +7,18 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 
 class Ej01ViewModel(): ViewModel() {
-    private val _counterList = mutableStateListOf<Int>()
+    //ESTADO
+    private var _counterList = mutableStateListOf<Int>()
     val counterList get() = _counterList
 
-    private var _numCounter by mutableStateOf(0)
-    val numCounter get() = _numCounter
 
-    private var _firstScreenTextFieldValue by mutableStateOf(0)
+    private var _firstScreenTextFieldValue by mutableStateOf("")
     val firstScreenTextFieldValue get() = _firstScreenTextFieldValue
 
     //FUNCIONES
     fun resetNumCounter(){
-        _numCounter=0
+        _counterList.clear()
+        _firstScreenTextFieldValue=""
     }
 
     fun increaseCounter(index:Int){
@@ -30,16 +30,12 @@ class Ej01ViewModel(): ViewModel() {
     }
 
     fun setFirstScreenTextFieldValue(text:String){
-        _numCounter=text.toIntOrNull()?:0
-    }
-
-    fun setNumCounter(text: String){
-        _numCounter=text.toIntOrNull()?:0
+        _firstScreenTextFieldValue=text
     }
 
     fun counterListInit(number:Int){
         repeat(number){
-            counterList[it]=0
+            _counterList.add(0)
         }
     }
 }

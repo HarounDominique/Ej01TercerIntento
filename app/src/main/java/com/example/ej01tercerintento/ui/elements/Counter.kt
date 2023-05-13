@@ -7,10 +7,9 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun Counter(
-    number:Int,
     firstButtonAction:()->Unit,
     secondButtonAction:()->Unit,
-    counterListInit:()->Unit
+    number:Int
 ){
     Row() {
         Button(onClick = { firstButtonAction }) {
