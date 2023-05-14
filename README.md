@@ -4,7 +4,7 @@ This is a simple Android application built with Jetpack Compose that allows the 
 
 ## Screenshots
 
-![Screenshot1](https://ibb.co/Kh6tcxJ)
+![Screenshot1](https://i.ibb.co/6wYKc0k/SS2.png)
 ![Screenshot2](https://ibb.co/nRqnTjT)
 ![Screenshot3](https://ibb.co/z8cLNWx)
 
