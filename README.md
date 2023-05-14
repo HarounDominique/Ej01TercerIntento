@@ -5,8 +5,8 @@ This is a simple Android application built with Jetpack Compose that allows the 
 ## Screenshots
 
 ![Screenshot1](https://i.ibb.co/6wYKc0k/SS2.png)
-![Screenshot2](https://ibb.co/nRqnTjT)
-![Screenshot3](https://ibb.co/z8cLNWx)
+![Screenshot2](https://i.ibb.co/LvDJM1M/SS3.png)
+![Screenshot3](https://i.ibb.co/6vhpNcw/SS4.png)
 
 ## Technologies Used
 
