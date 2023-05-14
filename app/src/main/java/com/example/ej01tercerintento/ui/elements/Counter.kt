@@ -12,11 +12,11 @@ fun Counter(
     number:Int
 ){
     Row() {
-        Button(onClick = { firstButtonAction }) {
+        Button(onClick = { firstButtonAction() }) {
             Text(text = "Decrementar")
         }
         Text(text=number.toString())
-        Button(onClick = { secondButtonAction }) {
+        Button(onClick = { secondButtonAction() }) {
             Text(text = "Incrementar")
         }
     }
